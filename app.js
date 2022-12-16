@@ -31,7 +31,6 @@ app.get('/api/v1/tours/:id', (req, res) => {
     const tour = tours.find((el) => el.id === id);
     res.status(200).json({
         status: 'success',
-
         data: {
             tour,
         },
@@ -54,6 +53,21 @@ app.post('/api/v1/tours', (req, res) => {
             });
         }
     );
+});
+
+app.patch('/api/v1/:id', (req, res) => {
+    if (req.params.id * 1 > tours.lenght) {
+        res.status(404).json({
+            status: 'fail',
+            message: 'invalid ID',
+        });
+    }
+    res.status(200).json({
+        status: 'success',
+        data: {
+            tour: '<tour updated!>',
+        },
+    });
 });
 
 app.listen(PORT, () => {
