@@ -4,7 +4,7 @@ const tourSchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'A tour must be have a name'],
-        unique: true,
+        unique: [true, 'the name is already used'],
     },
     rating: {
         type: String,
