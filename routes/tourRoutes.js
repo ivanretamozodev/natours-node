@@ -1,9 +1,7 @@
 const express = require('express');
-const toursController = require('./../controllers/tourController');
+const toursController = require('../controllers/tourController');
 
 const router = express.Router();
-
-router.param('id', toursController.checkID);
 
 router
     .route('/')
